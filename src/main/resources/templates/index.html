@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz Index Page</title>
+</head>
+<body>
+	<h1>Quiz Index Page</h1>
+	<table>
+	<tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="quiz : ${quizzes}">
+        <td th:text="${quiz.id}">123</td>
+        <td th:text="${quiz.description}">Description</td>
+    </tr>
+    </table>
+</body>
+</html>

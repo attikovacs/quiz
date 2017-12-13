@@ -1,5 +1,6 @@
 package com.github.attikovacs.quiz.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ import com.github.attikovacs.quiz.enums.QuestioningType;
 public class Quiz {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String name;
@@ -32,7 +33,7 @@ public class Quiz {
 
 	@ManyToMany
 	@JoinTable(name = "quiz_question_group", joinColumns = @JoinColumn(name = "quiz_id"), inverseJoinColumns = @JoinColumn(name = "question_group_id"))
-	private Set<QuestionGroup> questionGroups;
+	private Set<QuestionGroup> questionGroups = new HashSet<>();
 
 	@Enumerated(value = EnumType.STRING)
 	private QuestioningType questioningType;

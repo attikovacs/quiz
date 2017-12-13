@@ -1,5 +1,6 @@
 package com.github.attikovacs.quiz.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,18 +16,18 @@ import javax.persistence.OneToMany;
 public class Question {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Lob
 	private String question;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
-	private Set<Answer> answers;
+	private Set<Answer> answers = new HashSet<>();
 
 	@Lob
 	private Byte[] image;
-	
+
 	@ManyToOne
 	private QuestionGroup questionGroup;
 
