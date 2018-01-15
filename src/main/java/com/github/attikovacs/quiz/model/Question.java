@@ -54,6 +54,12 @@ public class Question {
 	public void setAnswers(Set<Answer> answers) {
 		this.answers = answers;
 	}
+	
+	public Question addAnswer(Answer answer){
+		this.answers.add(answer);
+		answer.setQuestion(this);
+	    return this;
+	}
 
 	public Byte[] getImage() {
 		return image;

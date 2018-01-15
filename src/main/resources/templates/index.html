@@ -8,11 +8,13 @@
 	<table>
 	<tr>
         <th>ID</th>
-        <th>Description</th>
+        <th>Question</th>
+        <th>Answer</th>
     </tr>
-    <tr th:each="quiz : ${quizzes}">
+    <tr th:each="quiz : ${quizzes[0].questionGroups[0].questions}">
         <td th:text="${quiz.id}">123</td>
-        <td th:text="${quiz.description}">Description</td>
+        <td th:text="${quiz.question}">Question</td>
+        <td th:text="${quiz.answers[0].answer}">Answer</td>
     </tr>
     </table>
 </body>

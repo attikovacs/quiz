@@ -43,17 +43,29 @@ public class QuizBootstrap implements ApplicationListener<ContextRefreshedEvent>
 		qg1.setDescription("Animal related questions");
 		
 		Question q1 = new Question();
-		q1.setQuestion("How many legs does a horse have?");
-		
+		q1.setQuestion("What is the name of the famous little pig?");	
 		Answer a1 = new Answer();
-		a1.setAnswer("4");
+		a1.setAnswer("Babe");
 		a1.setCorrect(Boolean.TRUE);
-		a1.setQuestion(q1);
+		q1.addAnswer(a1);
+		qg1.addQuestion(q1);
 		
-		q1.getAnswers().add(a1);
-		q1.setQuestionGroup(qg1);
+		Question q2 = new Question();
+		q2.setQuestion("How many lives does a cat have?");	
+		Answer a2 = new Answer();
+		a2.setAnswer("9");
+		a2.setCorrect(Boolean.TRUE);
+		q2.addAnswer(a2);
+		qg1.addQuestion(q2);
 		
-		qg1.getQuestions().add(q1);
+		Question q3 = new Question();
+		q3.setQuestion("How many legs does a horse have?");	
+		Answer a3 = new Answer();
+		a3.setAnswer("4");
+		a3.setCorrect(Boolean.TRUE);
+		q3.addAnswer(a3);
+		qg1.addQuestion(q3);
+		
 		qg1.getQuizzes().add(quiz1);
 		
 		questionGroupRepository.save(qg1);

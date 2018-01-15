@@ -60,6 +60,15 @@ public class QuestionGroup {
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+		for (Question question : questions) {
+			question.setQuestionGroup(this);
+		}
+	}
+	
+	public QuestionGroup addQuestion(Question question){
+		this.questions.add(question);
+		question.setQuestionGroup(this);
+	    return this;
 	}
 
 	public Set<Quiz> getQuizzes() {
