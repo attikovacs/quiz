@@ -2,20 +2,50 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Quiz Index Page</title>
+    
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+		integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+		crossorigin="anonymous">
+		
+	<style>
+		.borderless th {
+		    border: none;
+		}
+	</style>
 </head>
 <body>
-	<h1>Quiz Index Page</h1>
-	<table>
-	<tr>
-        <th>ID</th>
-        <th>Question</th>
-        <th>Answer</th>
-    </tr>
-    <tr th:each="quiz : ${quizzes[0].questionGroups[0].questions}">
-        <td th:text="${quiz.id}">123</td>
-        <td th:text="${quiz.question}">Question</td>
-        <td th:text="${quiz.answers[0].answer}">Answer</td>
-    </tr>
-    </table>
+<div class="container-fluid" style="margin-top: 20px;">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="card">
+				<div class="card-header">
+					<h3>Quiz Index Page</h3>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive" th:if="${not #lists.isEmpty(quizzes)}">
+					<table class="table table-hover borderless">
+						<thead>
+						<tr>
+					        <th>ID</th>
+					        <th>Question</th>
+					        <th>Answer</th>
+					    </tr>
+					    </thead>
+					    <tr th:each="quiz : ${quizzes[0].questionGroups[0].questions}">
+					        <td th:text="${quiz.id}">123</td>
+					        <td th:text="${quiz.question}">Question</td>
+					        <td th:text="${quiz.answers[0].answer}">Answer</td>
+					    </tr>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
