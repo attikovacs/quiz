@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import com.github.attikovacs.quiz.enums.QuestioningType;
 import com.github.attikovacs.quiz.model.Answer;
 import com.github.attikovacs.quiz.model.Question;
 import com.github.attikovacs.quiz.model.QuestionGroup;
@@ -37,6 +38,7 @@ public class QuizBootstrap implements ApplicationListener<ContextRefreshedEvent>
 		Quiz quiz1 = new Quiz();
 		quiz1.setName("Quiz1");
 		quiz1.setDescription("Living creatures");
+		quiz1.setQuestioningType(QuestioningType.ABCD);
 		
 		QuestionGroup qg1 = new QuestionGroup();
 		qg1.setName("Animals");
